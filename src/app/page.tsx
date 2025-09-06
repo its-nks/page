@@ -1,14 +1,21 @@
 "use client";
+import { Menu, X, Check } from "lucide-react";
+import React, { useState } from "react";
+import { Button } from "@/components/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/card";
+import { Badge } from "@/components/badge";
+import { Progress } from "@/components/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/select";
+import { Avatar, AvatarFallback } from "@/components/avatar";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Check, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+
 
 export default function HomePage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [selectedTopic, setSelectedTopic] = useState("arrays");
+    const [selectedDifficulty, setSelectedDifficulty] = useState("medium");
 
     // Company logos data
     const companies = [
@@ -72,10 +79,10 @@ export default function HomePage() {
 
                         {/* Desktop Navigation */}
                         <nav className="hidden md:flex items-center space-x-8">
-                            <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-                            <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">About</a>
-                            <a href="#dashboard" className="text-gray-700 hover:text-blue-600 transition-colors">Dashboard</a>
-                            <a href="#login" className="text-gray-700 hover:text-blue-600 transition-colors">Login</a>
+                            <Link href="/">Home</Link>
+                            <Link href="/about">About</Link>
+                            <Link href="/dashboard">Dashboard</Link>
+                            <Link href="/login">Login</Link>
                             <Button variant="outline" className="mr-2">Register</Button>
                             <Avatar className="w-8 h-8">
                                 <AvatarFallback>U</AvatarFallback>
